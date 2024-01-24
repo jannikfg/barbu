@@ -29,6 +29,6 @@ jobs:
 
       - uses: rlespinasse/drawio-export-action@v2
         with:
-          path: ./architecture.drawio
+          path: ./documentation
           format: png
           transparent: true
