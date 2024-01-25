@@ -1,0 +1,24 @@
+services:
+  postgres-gameservice:
+    image: postgres:15.0
+    container_name: postgres-gameservice
+    ports:
+      - 5433:5432
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=gameservice
+    networks:
+      - barbu-network
+
+  gameservice:
+    image: gameservice
+    container_name: gameservice
+    build:
+      context: .
+    ports:
+      - 8080:8080
+    depends_on:
+      - postgres-gameservice
+    networks:
+      - barbu-network
