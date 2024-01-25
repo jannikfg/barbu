@@ -19,7 +19,7 @@ jobs:
       - name: Export drawio files to asciidoctor and png files
         uses: rlespinasse/drawio-export-action@v2
         with:
-          format: adoc
+          format: png
           transparent: true
           output: drawio-assets
 
@@ -34,4 +34,5 @@ jobs:
           commit_user_name: "${{ env.GIT_COMMIT_COMMITTER_NAME }}"
           commit_user_email: "${{ env.GIT_COMMIT_COMMITTER_EMAIL }}"
           commit_author: "${{ env.GIT_COMMIT_AUTHOR }}"
+          add: 'drawio-assets/*.png'
         if: github.ref == 'refs/heads/main'
